@@ -1,3 +1,4 @@
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -67,6 +68,7 @@ public class Main {
             System.out.println("Digite uma opção");
             Scanner sc = new Scanner(System.in);
             int opcao = sc.nextInt();
+            sc.nextLine();
 
             System.out.println("A opção escolhida foi " + opcao);
 
@@ -94,9 +96,12 @@ public class Main {
                 String titulo = sc.nextLine();
                 System.out.println("DIgite a descrição");
                 String descricao = sc.nextLine();
-                System.out.println("Digite a data (2025-)");
-
+                System.out.println("Digite a data (yyyy-mm-dd)");
+                LocalDate dataEntrega = LocalDate.parse(sc.nextLine());
                 System.out.println("Cadastrar tarefa");
+
+                Tarefa novaTarefa = new Tarefa(titulo, descricao, dataEntrega);
+                System.out.println(novaTarefa);
                 yield true;
             }
             case 2 -> {
